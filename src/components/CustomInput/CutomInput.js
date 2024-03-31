@@ -5,9 +5,9 @@ const CustomInput = ({value, setValue, placeholder}) => {
     return (
         <View style={styles.container}>
             <TextInput 
-                placeholder={placeholder} 
+                placeholder={placeholder}
+                onChangeText={setValue}
                 value={value}
-                setValue={setValue}
             />
         </View>
     )

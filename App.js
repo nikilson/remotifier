@@ -13,7 +13,8 @@ import {
   View,
 } from 'react-native';
 
-import LoginScreen from './src/screens/LoginScreen';
+
+import Navigation from './src/screens/Navigation';
 
 
 
@@ -21,8 +22,9 @@ function App() {
 
   return (
     <SafeAreaView style={styles.app}>
-      <LoginScreen />
-      {/* <Text>Hello World!</Text> */}
+      <Navigation/>
+      {/* <HomeScreen/> */}
+      {/* <LoginScreen /> */}
     </SafeAreaView>
   );
 }

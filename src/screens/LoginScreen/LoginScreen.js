@@ -4,15 +4,25 @@ import CustomInput from "../../components/CustomInput";
 // Assets
 import RemotifierLogo from "../../../assets/images/pcremote.png"
 import CustomButtom from "../../components/CustomButton/CustomButtom";
+import scanForFlaskServers from "../../networking/ScanFlaskServer";
+import { useNavigation } from "@react-navigation/native";
+import get from "../../networking/Requests/Requests";
+
 
 const LoginScreen = () => {
-    const [baseUrl, setBaseUrl] = useState('');
+    const navigation = useNavigation();
+    const [baseUrlText, setBaseUrlText] = useState('');
 
-    const onSignInPressed = () => {
-        console.warn("Sign In Pressed");
+    const onSignInPressed = async () => {
+        var response = await get(baseUrl=baseUrlText, endpoint='/connect');
+        console.log(response, baseUrlText);
+        if (response != null && response.success){
+            navigation.navigate("Home");
+        }
     }
     const onScanServerPressed = () => {
-        console.warn("Scanning for servers")
+        let baseUrl = scanForFlaskServers(5000);
+        console.warn("Scanning for servers");
     }
     const {height} = useWindowDimensions();
     return (
@@ -24,8 +34,8 @@ const LoginScreen = () => {
             
             <CustomInput 
                 placeholder="Remotifier Url"
-                value={baseUrl}
-                setValue={setBaseUrl}
+                value={baseUrlText}
+                setValue={setBaseUrlText}
             />
             <CustomButtom 
                 onPress={onScanServerPressed}
@@ -34,7 +44,7 @@ const LoginScreen = () => {
             />
             <CustomButtom 
                 onPress={onSignInPressed}
-                text="Sign In"
+                text="Connect"
             />
         </View>
     )
@@ -49,7 +59,7 @@ const styles = StyleSheet.create({
         width: '70%',
         maxWidth: 300,
         maxHeight: 200,
-        marginBottom: '25%'
+        marginBottom: '5%'
     },
     greeting: {
         textAlign: 'left',
