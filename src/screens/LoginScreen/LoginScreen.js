@@ -17,7 +17,7 @@ const LoginScreen = () => {
         var response = await get(baseUrl=baseUrlText, endpoint='/connect');
         console.log(response, baseUrlText);
         if (response != null && response.success){
-            navigation.navigate("Home");
+            navigation.navigate("Home", {"baseUrl": {baseUrlText}});
         }
     }
     const onScanServerPressed = () => {

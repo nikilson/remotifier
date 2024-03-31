@@ -13,8 +13,8 @@ const ytContName = 'Yt';
 
 const Tab = createBottomTabNavigator();
 
-
-function HomeScreen() {
+function HomeScreen({ route }) {
+    const { baseUrl} = route.params;
   return (
       <Tab.Navigator
         initialRouteName={osContName}
@@ -39,9 +39,9 @@ function HomeScreen() {
         })}
         >
 
-        <Tab.Screen name={vlcContName} component={VlcController} />
-        <Tab.Screen name={osContName} component={OsController} />
-        <Tab.Screen name={ytContName} component={YtController} />
+        <Tab.Screen name={vlcContName} component={VlcController} initialParams={{baseUrl}}/>
+        <Tab.Screen name={osContName} component={OsController} initialParams={{baseUrl}}/>
+        <Tab.Screen name={ytContName} component={YtController} initialParams={{baseUrl}}/>
 
       </Tab.Navigator>
   );

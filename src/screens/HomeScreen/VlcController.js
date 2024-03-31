@@ -1,9 +1,11 @@
 import React from "react";
 import {View, Text} from "react-native";
 
-const VlcController = () => {
+const VlcController = ({route}) => {
+    const {baseUrl} = route.params;
+    
     return (
-        <View><Text>This is VLC screen</Text></View>
+        <View><Text>{baseUrl.baseUrlText}</Text></View>
     )
 }
 
