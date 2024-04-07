@@ -7,6 +7,7 @@
 
 import React from 'react';
 import {
+  KeyboardAvoidingView,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -23,8 +24,6 @@ function App() {
   return (
     <SafeAreaView style={styles.app}>
       <Navigation/>
-      {/* <HomeScreen/> */}
-      {/* <LoginScreen /> */}
     </SafeAreaView>
   );
 }

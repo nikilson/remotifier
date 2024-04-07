@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { View, Text, Image, StyleSheet, useWindowDimensions } from "react-native";
+import { View, Text, Image, StyleSheet, useWindowDimensions, ScrollView } from "react-native";
 import CustomInput from "../../components/CustomInput";
 // Assets
 import RemotifierLogo from "../../../assets/images/pcremote.png"
@@ -26,6 +26,7 @@ const LoginScreen = () => {
     }
     const {height} = useWindowDimensions();
     return (
+        <ScrollView>
         <View style={styles.root}>
             <Image source={RemotifierLogo} style={[styles.logo, {height: height * 0.3}]}  resizeMode="contain"></Image>
             <View style={styles.greetingContainer}>
@@ -47,6 +48,7 @@ const LoginScreen = () => {
                 text="Connect"
             />
         </View>
+        </ScrollView>
     )
 }
 

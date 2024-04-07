@@ -7,9 +7,9 @@ import OsController from "./OsController";
 import VlcController from "./VlcController";
 import YtController from "./YtController";
 
-const osContName = 'Os';
-const vlcContName = 'Vlc';
-const ytContName = 'Yt';
+const osContName = 'OS';
+const vlcContName = 'VLC';
+const ytContName = 'WEB';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,15 +22,16 @@ function HomeScreen({ route }) {
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
             let rn = route.name;
+            size = 30
 
             if (rn === osContName) {
-              iconName = focused ? 'home' : 'home-outline';
-
+              iconName = focused ? 'desktop' : 'desktop-outline';
+              // color = focused ? 'lightgreen' : color;
             } else if (rn === vlcContName) {
-              iconName = focused ? 'list' : 'list-outline';
+              iconName = focused ? 'videocam' : 'videocam-outline';
 
             } else if (rn === ytContName) {
-              iconName = focused ? 'settings' : 'settings-outline';
+              iconName = focused ? 'logo-youtube' : 'logo-youtube';
             }
 
             // You can return any component that you like here!
