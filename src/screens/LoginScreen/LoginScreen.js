@@ -6,7 +6,7 @@ import RemotifierLogo from "../../../assets/images/pcremote.png"
 import CustomButtom from "../../components/CustomButton/CustomButtom";
 import scanForFlaskServers from "../../networking/ScanFlaskServer";
 import { useNavigation } from "@react-navigation/native";
-import get from "../../networking/Requests/Requests";
+import {get} from "../../networking/Requests/Requests";
 
 
 const LoginScreen = () => {

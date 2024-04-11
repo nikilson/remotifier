@@ -2,10 +2,11 @@ import React, {useState} from "react";
 import {View, Text, StyleSheet, ScrollView} from "react-native";
 import CustomInput from "../../components/CustomInput";
 import CustomButton from "../../components/CustomButton";
-import get from "../../networking/Requests/Requests";
+import {get, post} from "../../networking/Requests/Requests";
 import CustomCircleButton from "../../components/RemoteComponents/CustomCircleButton";
 import CustomPillButton from "../../components/RemoteComponents/CustomPillButton";
 import CustomRemoteButton from "../../components/RemoteComponents/CustomRemoteButton";
+
 
 const YtController = ({route}) => {
     const [youtubeSearchKey, setYoutubeSearchKey] = useState('');
@@ -17,6 +18,19 @@ const YtController = ({route}) => {
         setYoutubeSearchKey('');
         //console.warn("YT search");
     }
+
+    const onFullScreenPressed = async () => {
+        response = await post(baseUrl.baseUrlText, '/oscontrol/press', {'key':'f'});
+    }
+
+    const onCancelFullScreenPressed = async () => {
+        response = await post(baseUrl.baseUrlText, '/oscontrol/press', {'key':'f'});
+    }
+
+    const onMutePressed = async () => {
+        response = await post(baseUrl.baseUrlText, '/oscontrol/press', {'key':'m'});
+    }
+
     return (
         <ScrollView>
         <View style={styles.root}>
@@ -44,14 +58,14 @@ const YtController = ({route}) => {
                 </View>
                 <View style={styles.row2}>
                     <CustomPillButton label={'Vol'}/>
-                    <CustomRemoteButton icon={"volume-mute"}/>
+                    <CustomRemoteButton icon={"volume-mute"} onPress={onCancelFullScreenPressed}/>
                     <CustomPillButton label={'Vid'}/>
                 </View>
                 <CustomCircleButton/>
                 <View style={styles.row4}>
-                    <CustomRemoteButton icon={"expand"}/>
+                    <CustomRemoteButton icon={"expand"} onPress={onFullScreenPressed}/>
                     <CustomRemoteButton icon={"list"}/>
-                    <CustomRemoteButton icon={"contract"}/>
+                    <CustomRemoteButton icon={"contract"} onPress={onCancelFullScreenPressed}/>
                 </View>
                 <View style={styles.row1}>
                     <CustomRemoteButton icon={"share-social"}/>

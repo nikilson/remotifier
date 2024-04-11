@@ -2,10 +2,10 @@ import { View, StyleSheet, TouchableOpacity, Text } from 'react-native'
 import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const CustomRemoteButton = ({icon, color="black"}) => {
+const CustomRemoteButton = ({icon, color="black", onPress}) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.sideButton}>
+      <TouchableOpacity style={styles.sideButton} onPress={onPress}>
         <Ionicons name={icon} size={24} color={color} />
       </TouchableOpacity>
       </View>
