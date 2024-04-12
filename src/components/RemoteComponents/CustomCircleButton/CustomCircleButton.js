@@ -3,25 +3,25 @@ import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
-const CustomCircleButton = () => {
+const CustomCircleButton = ({centerText='Play', onPressCenter, onPressTop, onPressBottom, onPressLeft, onPressRight}) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.sideButton}>
+      <TouchableOpacity style={styles.sideButton} onPress={onPressTop}>
         <Ionicons name="chevron-up" size={24} color="black" />
       </TouchableOpacity>
       <View style={styles.midButtons}>
-      <TouchableOpacity style={styles.sideButton}>
+      <TouchableOpacity style={styles.sideButton} onPress={onPressLeft}>
         <Ionicons name="chevron-back" size={24} color="black" />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.centerButton}>
+      <TouchableOpacity style={styles.centerButton} onPress={onPressCenter}>
          {/* <Ionicons name="add" size={36} color="black" /> */}
-         <Text style={styles.centerButtonText}>Play</Text>
+         <Text style={styles.centerButtonText}>{centerText}</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.sideButton}>
+      <TouchableOpacity style={styles.sideButton} onPress={onPressRight}>
         <Ionicons name="chevron-forward" size={24} color="black" />
       </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.sideButton}>
+      <TouchableOpacity style={styles.sideButton} onPress={onPressBottom}>
         <Ionicons name="chevron-down" size={24} color="black" />
       </TouchableOpacity>
     </View>

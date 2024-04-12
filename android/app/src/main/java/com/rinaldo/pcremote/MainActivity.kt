@@ -1,4 +1,4 @@
-package com.remotifier
+package com.rinaldo.pcremote
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

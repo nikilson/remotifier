@@ -74,9 +74,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.remotifier"
+    namespace "com.rinaldo.pcremote"
     defaultConfig {
-        applicationId "com.remotifier"
+        applicationId "com.rinaldo.pcremote"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

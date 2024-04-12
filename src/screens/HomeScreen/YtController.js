@@ -31,6 +31,17 @@ const YtController = ({route}) => {
         response = await post(baseUrl.baseUrlText, '/oscontrol/press', {'key':'m'});
     }
 
+    const onBackForwardPressed = async () => {
+        response = await post(baseUrl.baseUrlText, '/oscontrol/press', {'key':'j'});
+    }
+
+    const onFastForwardPressed = async () => {
+        response = await post(baseUrl.baseUrlText, '/oscontrol/press', {'key':'l'});
+    }
+
+    const onPausePlayPressed = async () => {
+        response = await post(baseUrl.baseUrlText, '/oscontrol/press', {'key':'k'});
+    }
     return (
         <ScrollView>
         <View style={styles.root}>
@@ -58,10 +69,15 @@ const YtController = ({route}) => {
                 </View>
                 <View style={styles.row2}>
                     <CustomPillButton label={'Vol'}/>
-                    <CustomRemoteButton icon={"volume-mute"} onPress={onCancelFullScreenPressed}/>
+                    <CustomRemoteButton icon={"volume-mute"} onPress={onMutePressed}/>
                     <CustomPillButton label={'Vid'}/>
                 </View>
-                <CustomCircleButton/>
+                <CustomCircleButton centerText="Play"
+                    onPressLeft={onBackForwardPressed}
+                    onPressRight={onFastForwardPressed}
+                    onPressTop={onBackForwardPressed}
+                    onPressBottom={onFastForwardPressed}
+                    onPressCenter={onPausePlayPressed}/>
                 <View style={styles.row4}>
                     <CustomRemoteButton icon={"expand"} onPress={onFullScreenPressed}/>
                     <CustomRemoteButton icon={"list"}/>
