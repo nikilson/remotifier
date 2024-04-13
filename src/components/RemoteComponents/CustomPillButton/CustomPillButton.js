@@ -1,6 +1,8 @@
-import { View, StyleSheet, TouchableOpacity, Text } from 'react-native'
+import { View, StyleSheet, TouchableOpacity, Text, Dimensions } from 'react-native'
 import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
+const { width, height } = Dimensions.get('window');
 
 const CustomPillButton = ({label}) => {
   return (
@@ -18,18 +20,18 @@ const CustomPillButton = ({label}) => {
 
 const styles = StyleSheet.create({
     container: {
-      width: 60,
-      height: 150,
-      borderRadius: 24,
+      width: width * 0.18,
+      height: width * 0.35,
+      borderRadius: width * 0.08,
       backgroundColor: 'lightgrey',
       alignItems: 'center',
       justifyContent: 'space-evenly',
       flexDirection: 'column'
     },
     sideButton: {
-      width: 48,
-      height: 48,
-      borderRadius: 24,
+      width: width * 0.15,
+      height: width * 0.15,
+      borderRadius: width * 0.08,
       backgroundColor: 'lightgrey',
       alignItems: 'center',
       justifyContent: 'center',

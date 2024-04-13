@@ -20,28 +20,33 @@ const YtController = ({route}) => {
     }
 
     const onFullScreenPressed = async () => {
-        response = await post(baseUrl.baseUrlText, '/oscontrol/press', {'key':'f'});
+        response = await post(baseUrlParam=baseUrl.baseUrlText, endpoint='/oscontrol/press', params={'key':'f'});
     }
 
     const onCancelFullScreenPressed = async () => {
-        response = await post(baseUrl.baseUrlText, '/oscontrol/press', {'key':'f'});
+        response = await post(baseUrlParam=baseUrl.baseUrlText, endpoint='/oscontrol/press', params={'key':'f'});
     }
 
     const onMutePressed = async () => {
-        response = await post(baseUrl.baseUrlText, '/oscontrol/press', {'key':'m'});
+        response = await post(baseUrlParam=baseUrl.baseUrlText, endpoint='/oscontrol/press', params={'key':'m'});
     }
 
     const onBackForwardPressed = async () => {
-        response = await post(baseUrl.baseUrlText, '/oscontrol/press', {'key':'j'});
+        response = await post(baseUrlParam=baseUrl.baseUrlText, endpoint='/oscontrol/press', params={'key':'j'});
     }
 
     const onFastForwardPressed = async () => {
-        response = await post(baseUrl.baseUrlText, '/oscontrol/press', {'key':'l'});
+        response = await post(baseUrlParam=baseUrl.baseUrlText, endpoint='/oscontrol/press', params={'key':'l'});
     }
 
     const onPausePlayPressed = async () => {
-        response = await post(baseUrl.baseUrlText, '/oscontrol/press', {'key':'k'});
+        response = await post(baseUrlParam=baseUrl.baseUrlText, endpoint='/oscontrol/press', params={'key':'k'});
     }
+
+    const onCloseTabPressed = async () => {
+        response = await post(baseUrlParam=baseUrl.baseUrlText, endpoint='/oscontrol/hotkey', params={'keys': ['ctrl', 'w']});
+    }
+
     return (
         <ScrollView>
         <View style={styles.root}>
@@ -64,7 +69,7 @@ const YtController = ({route}) => {
             <View style={styles.buttonsContainer}>
                 <View style={styles.row1}>
                     <CustomRemoteButton icon={"chatbox-ellipses"}/>
-                    <CustomRemoteButton icon={"close"} color={'red'}/>
+                    <CustomRemoteButton icon={"close"} color={'red'} onPress={onCloseTabPressed}/>
                     <CustomRemoteButton icon={"swap-horizontal"}/>
                 </View>
                 <View style={styles.row2}>
@@ -105,39 +110,39 @@ const styles = StyleSheet.create({
     },
     searchinput: {
         flex: 3,
-        marginHorizontal: 5,
+        marginHorizontal: '3%',
     },
     ytsearchbtn: {
         flex: 1,
-        marginHorizontal: 5,
+        marginHorizontal: '3%',
     },
     buttonsContainer: {
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: '10%',
-        paddingVertical: 5
+        marginTop: '3%',
+        paddingVertical: "1%"
         
     },
     row1: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         width: '100%',
-        paddingHorizontal: 50,
-        paddingVertical: 10
+        paddingHorizontal: "8%",
+        paddingVertical: "2%"
     },
     row2: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingHorizontal: 50,
+        paddingHorizontal: "8%",
         width: '100%',
-        paddingVertical: 10
+        paddingVertical: "2%"
     },
     row4: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         width: '100%',
-        paddingHorizontal: 50,
-        paddingVertical: 10
+        paddingHorizontal: "8%",
+        paddingVertical: "2%"
     }
 })
 export default YtController

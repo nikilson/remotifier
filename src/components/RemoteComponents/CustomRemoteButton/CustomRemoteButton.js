@@ -1,6 +1,9 @@
-import { View, StyleSheet, TouchableOpacity, Text } from 'react-native'
+import { View, StyleSheet, TouchableOpacity, Text, Dimensions } from 'react-native'
 import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
+
+const { width, height } = Dimensions.get('window');
 
 const CustomRemoteButton = ({icon, color="black", onPress}) => {
   return (
@@ -14,15 +17,15 @@ const CustomRemoteButton = ({icon, color="black", onPress}) => {
 
 const styles = StyleSheet.create({
     container: {
-      width: 60,
-      height: 60,
-      borderRadius: 24,
+      width: width * 0.18,
+      height: width * 0.18,
+      borderRadius: width * 0.07,
       backgroundColor: 'lightgrey',
     },
     sideButton: {
-      width: 60,
-      height: 60,
-      borderRadius: 24,
+      width: width * 0.18,
+      height: width * 0.18,
+      borderRadius: width * 0.07,
       backgroundColor: 'lightgrey',
       alignItems: 'center',
       justifyContent: 'center',

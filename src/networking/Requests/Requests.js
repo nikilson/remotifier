@@ -13,20 +13,35 @@ async function get(baseUrl, endpoint, param){
     }
   };
 
-  async function post(baseUrl, endpoint, param){
+  async function post(baseUrlParam, endpoint, param={}, body_param={}){
+
+    // Headers
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+  
     let paramEndpoint = ''
+
+    // Parameters
     for (let key in param){
       paramEndpoint += `?${key}=${param[key]}`
     }
-    let url = baseUrl + endpoint + paramEndpoint;
+
+    // Body
+
+    const raw = JSON.stringify(body_param);
+
+    let url = baseUrlParam + endpoint + paramEndpoint;
     const requestOptions = {
       method: "POST",
-      redirect: "follow"
+      redirect: "follow",
+      headers: myHeaders,
+      body: raw,
     };
+
     try {
       const response = await fetch(
           url, 
-          requestOptions
+          requestOptions,
         );
       const json = await response.json();
       return json;

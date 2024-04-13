@@ -1,7 +1,8 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+const { width, height } = Dimensions.get('window');
 
 const CustomCircleButton = ({centerText='Play', onPressCenter, onPressTop, onPressBottom, onPressLeft, onPressRight}) => {
   return (
@@ -31,18 +32,18 @@ const CustomCircleButton = ({centerText='Play', onPressCenter, onPressTop, onPre
 
 const styles = StyleSheet.create({
   container: {
-    width: 200,
-    height: 200,
-    borderRadius: 100,
+    width: width * 0.6,
+    height: width * 0.6,
+    borderRadius: width * 0.3,
     backgroundColor: 'lightgrey',
     alignItems: 'center',
     justifyContent: 'space-evenly',
     flexDirection: 'column'
   },
   centerButton: {
-    width: 72,
-    height: 72,
-    borderRadius: 36,
+    width: width * 0.25,
+    height: width * 0.25,
+    borderRadius: width * 0.125,
     backgroundColor: 'white',
    //  borderWidth: 2,
     //borderColor: 'white',
@@ -56,15 +57,15 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   sideButton: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
+    width: width * 0.17,
+    height: width * 0.17,
+    borderRadius: width * 0.07,
     backgroundColor: 'lightgrey',
     alignItems: 'center',
     justifyContent: 'center',
   },
   centerButtonText: {
-    fontSize: 20,
+    fontSize: width * 0.06,
     fontWeight: 'bold',
     color: 'black'
   }
